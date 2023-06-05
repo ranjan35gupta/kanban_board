@@ -1,0 +1,9 @@
+.add_list_btn {
+    margin-top: 2rem;
+    margin-left: 4rem;
+    height: 3rem;
+    width: 18vw;
+    opacity: 0.8;
+    border: 1px solid white;
+    border-radius: 0.5rem;
+}

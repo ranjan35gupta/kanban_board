@@ -1,0 +1,15 @@
+.wraper {
+    margin-top: 2rem;
+}
+
+
+
+.wraper input {
+    height: 2rem;
+    width: 6.2rem;
+
+}
+.wraper button {
+    height: 2.2rem;
+    width: 4rem;
+}
