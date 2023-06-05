@@ -1,0 +1,16 @@
+.navbar_container{
+    display:flex;
+    color:antiquewhite;
+    border: 2px solid black;
+    justify-content: space-between;
+}
+.nav_first{
+    border: 2px solid green;
+    display: flex;
+    gap:1rem;
+}
+.nav_second{
+    border:2px solid blue;
+    display: flex;
+    gap:1rem;
+}
