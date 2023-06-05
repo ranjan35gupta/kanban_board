@@ -6,6 +6,7 @@ const Homepage = () => {
   return (
     <div>
        <MainPage/>
+       
     </div>
   )
 }
