@@ -2,8 +2,8 @@
 
 
 #root{
-    /* background-color: red; */
-    background-image: url();
+    background-color: red;
+    /* background-image: url(); */
     height: 100vh;
     width: 100vw;
 }
