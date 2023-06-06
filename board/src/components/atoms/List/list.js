@@ -7,10 +7,10 @@ const List = () => {
   return (
     <div className={styles.wraper}>
         <div>
-            <span style={{color: "white"}}>{title}</span>
-        <input type='text' />
-        <button>Add</button>
-        </div> 
+           <input value={title}   />
+           <input type='text' />
+           <button>Add</button>
+           </div> 
         
         
 

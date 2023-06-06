@@ -2,25 +2,27 @@ import React, { useState } from "react";
 
 import styles from "./todo.module.css";
 import List from "../../atoms/List/list";
-import { useDispatch } from "react-redux";
-import { addTitle } from "./../../../Redux/Todo/todoSlice";
+import { useDispatch,useSelector } from "react-redux";
+import { addTitle,addTodo } from "../../../Redux/Reduxslice/todoSlice";
 const Todo = () => {
   const dispatch = useDispatch();
+  const values = useSelector(state=>state.newState)
+  const {title,todo} = values
+
   const [showList, setShowList] = useState(false);
-  const [list, setList] = useState([]);
+  
   const [isClicked, setIsClicked] = useState(true);
 
   const handleAddList = () => {
     setIsClicked(false);
     
-    const listData = [...list];
-    listData.push(<List />);
-    setList(listData);
-    console.log(listData);
+    
   };
 
 
   const handleCard = () => {
+    dispatch(addTodo({id:Math.random()*1000,title:<input  defaultValue={title}   />,inputtag:<input/>}))
+
     setShowList(true);
     setIsClicked(true)
   }
@@ -34,8 +36,8 @@ const Todo = () => {
           </button>
         </div>
       ) : (
-        <div>
-          <input
+        <div className={styles.title} >
+          <input 
             onChange={(e) => {
               dispatch(addTitle(e.target.value));
             }}
@@ -46,10 +48,12 @@ const Todo = () => {
 
       {showList ? (
         <>
-          {list.map((item) => {
+          {todo.map((item) => {
             return (
               <>
-                <div>{item}</div>
+                <div>{item.title}
+                {item.inputtag}
+                <button>add cart</button></div>
               </>
             );
           })}
