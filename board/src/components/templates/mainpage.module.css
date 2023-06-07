@@ -1,6 +1,10 @@
 body{
-    /* background: url('./../atoms/pics/kanvin.jpg'); */
-    background-color: white;
-    color:black;
+    background: url('./../atoms/pics/kanvin.jpg');
+    background-size: cover;
+    background-position: center;
+    height: 100vh;
+
+    /* background-color: white; */
+    /* color:black; */
     
 }

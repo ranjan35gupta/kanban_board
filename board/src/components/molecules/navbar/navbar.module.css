@@ -1,16 +1,73 @@
 .navbar_container{
     display:flex;
-    color:black;
-    border: 2px solid black;
+    color:white;
+    /* border: 2px solid red; */
+    margin-top: 15px;
+    box-shadow: 0px 0px 8px 0px white;
     justify-content: space-between;
 }
 .nav_first{
-    border: 2px solid green;
+    /* border: 2px solid green; */
+    margin-left: 40px;
+    /* padding: 3px; */
     display: flex;
     gap:1rem;
 }
 .nav_second{
-    border:2px solid blue;
+    /* border:2px solid blue; */
     display: flex;
+    margin-right: 40px;
     gap:1rem;
+}
+.borderIcons{
+    margin-top: 20px;
+    margin-left: 15px;
+    /* padding: 3px; */
+  
+
+
+}
+.peopleIcone{
+    margin-top: 20px;
+    margin-left: 15px;
+
+}
+.select{
+    margin-top: 17px;
+    border-radius: 3px;
+    margin-bottom: 12px;
+    margin-left: 15px;
+}
+.Rocket{
+    margin-top: 20px;
+}
+.power{
+    margin-top: 20px;
+}
+.electric{
+    margin-top: 20px;
+}
+.Auto{
+    margin-top: 20px;
+}
+.Filter{
+    margin-top: 20px;
+}
+.Filters{
+    margin-top: 20px;
+}
+.Account{
+    margin-top: 20px;
+}
+.personAdd{
+    margin-top: 20px;
+    margin-right: 20px;
+}
+span{
+  margin-top: 20px;
+    margin-right: 20px;
+}
+.moreHoriz{
+    margin-top: 20px;
+    margin-right: 20px;
 }

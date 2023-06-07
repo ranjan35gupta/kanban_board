@@ -13,26 +13,26 @@ const Navbar = () => {
     <div className={styles.navbar_container}>
         <div className={styles.nav_first}>
             <h3>Home Task Management</h3>
-            <StarBorderIcon/>
-            <PeopleIcon/>
-            <select defaultValue="Board">
+            <StarBorderIcon className={styles.borderIcons}/>
+            <PeopleIcon className={styles.peopleIcone}/>
+            <select defaultValue="Board" className={styles.select}>
                 
                 <option value="Board">Board</option>
                 </select>
                 </div>
                
              <div className={styles.nav_second}>
-             <RocketLaunchOutlinedIcon/>    
-        <span>Power-Ups</span>
-        <ElectricBoltOutlinedIcon/>
-                <span>Automation</span>
-                <FilterListIcon/>
-                <span>Filter</span>
-                <AccountCircleIcon/>
+             <RocketLaunchOutlinedIcon className={styles.Rocket}/>    
+        <span className={styles.power}>Power-Ups</span>
+        <ElectricBoltOutlinedIcon className={styles.electric}/>
+                <span className={styles.Auto}>Automation</span>
+                <FilterListIcon className={styles.Filter}/>
+                <span className={styles.Filters}>Filter</span>
+                <AccountCircleIcon className={styles.Account}/>
          <div>
-              <PersonAddAltOutlinedIcon/>
-                 Share
-             <MoreHorizOutlinedIcon/>
+              <PersonAddAltOutlinedIcon className={styles.personAdd}/>
+               <span className={styles.span1}>Share</span>  
+             <MoreHorizOutlinedIcon className={styles.moreHoriz}/>
                 </div>
             
         </div>

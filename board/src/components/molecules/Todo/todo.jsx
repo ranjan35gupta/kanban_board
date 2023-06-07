@@ -22,16 +22,16 @@ const Todo = () => {
 
 
   const handleCard = () => {
-    dispatch(addTodo({id:Math.random()*1000,title:<input  defaultValue={title}/>,inputtag:<List/>}))
+    dispatch(addTodo({id:Math.random()*1000,title:<input className={styles.inputField2} defaultValue={title}/>,inputtag:<List/>}))
 
     setShowList(true);
     setIsClicked(true)
   }
 
   return (
-    <>
+    <div className={styles.container}  style={{ marginLeft: "20px" }}>
       {isClicked ? (
-        <div>
+        <div >
           <button onClick={handleAddList} className={styles.add_list_btn}>
             Add List
           </button>
@@ -39,11 +39,13 @@ const Todo = () => {
       ) : (
         <div className={styles.title} >
           <input 
+          placeholder="Enter your ToDo ..."
+          className={styles.inputField}
             onChange={(e) => {
               dispatch(addTitle(e.target.value));
             }}
           />
-          <button onClick={handleCard}>Add Card</button>
+          <button onClick={handleCard} className={styles.addbtn}>Add Card</button>
         </div>
       )}
 
@@ -64,7 +66,7 @@ const Todo = () => {
       ) : (
         <></>
       )}
-    </>
+    </div>
   );
 };
 
