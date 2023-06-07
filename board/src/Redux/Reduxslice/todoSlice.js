@@ -6,18 +6,21 @@ const todoSlice = createSlice({
     initialState: {
         title : "",
         todo:[],
+        
     },
     reducers: {
         addTitle : (state,action) => {
-            state.title = action.payload
+            state.title = action.payload;
         },
         addTodo:(state,action)=>{
         const todoContainer = [...state.todo]
         console.log(action.payload)
         todoContainer.push(action.payload)
         state.todo = todoContainer
+        localStorage.setItem("boardData", JSON.stringify(state.todo))
     
-    }
+    },
+    
     }
 });
 

@@ -1,6 +1,6 @@
 body{
-    /* background: url('./../atoms/pics/kanvin.jpg'); */
-    background-color: white;
-    color:black;
+    background: url('../../../public/background_image.jpg');
+
+    color:rgb(240, 231, 231); 
     
 }
