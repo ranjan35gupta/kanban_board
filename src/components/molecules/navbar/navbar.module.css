@@ -1,0 +1,83 @@
+
+.navbar_container{
+    display:flex;
+    color:white;
+    margin-top: 10px;
+    margin-bottom: 15px;
+    box-shadow: 0px 0px 8px 0px white;
+    justify-content: space-between;
+}
+.nav_first{
+    margin-left: 40px;
+    /* padding: 3px; */
+    display: flex;
+    /* margin-top: 10px; */
+    gap:1rem;
+}
+.nav_second{
+    /* border:2px solid blue; */
+    display: flex;
+    margin-right: 40px;
+    gap:1rem;
+}
+.borderIcons{
+    margin-top: 20px;
+    margin-left: 15px;
+    /* padding: 3px; */
+  
+
+
+}
+.peopleIcone{
+    margin-top: 20px;
+    margin-left: 15px;
+
+}
+.select{
+    margin-top: 17px;
+    border-radius: 3px;
+    margin-bottom: 12px;
+    margin-left: 15px;
+}
+.Rocket{
+    margin-top: 20px;
+    margin-right: 15px;
+}
+.power{
+    margin-top: 20px;
+    margin-right: 15px;
+}
+.electric{
+    margin-top: 20px;
+    margin-right: 15px;
+}
+.Auto{
+    margin-top: 20px;
+    margin-right: 15px;
+}
+.Filter{
+    margin-top: 20px;
+    margin-right: 15px;
+}
+.Filters{
+    margin-top: 20px;
+    margin-right: 15px;
+}
+.Account{
+    margin-top: 20px;
+    margin-right: 15px;
+}
+.personAdd{
+    margin-top: 20px;
+    margin-right: 20px;
+}
+.span1{
+    position: relative;
+    top: -6px;
+    margin-top: 20px;
+    margin-right: 20px;
+}
+.moreHoriz{
+    margin-top: 20px;
+    margin-right: 20px;
+}

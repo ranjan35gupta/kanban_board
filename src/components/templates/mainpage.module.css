@@ -1,0 +1,11 @@
+body{
+    background: url('./../atoms/pics/Laptop-Wallpaper-4K-High-Resolution.jpg');
+    /* background-image: "https://www.pixelstalk.net/wp-content/uploads/images6/Laptop-Wallpaper-4K-High-Resolution.jpg"; */
+    background-size: cover;
+    background-position: center;
+    height: 100vh;
+
+    /* background-color: white; */
+    color:white;
+    
+}
