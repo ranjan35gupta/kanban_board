@@ -6,21 +6,46 @@ const todoSlice = createSlice({
     initialState: {
         title : "",
         todo:[],
+        beforeCartTitle:"",
+        
     },
     reducers: {
         addTitle : (state,action) => {
-            state.title = action.payload
+            const {element,cartId}=action.payload
+            // state.title = element
+          const  id = cartId
+           state.todo.map(ele=>{
+                if(ele.id===id){
+                 
+                  ele.cartName=element
+                  
+                  localStorage.setItem("todolists",JSON.stringify(state.todo))
+                }
+              })
         },
         addTodo:(state,action)=>{
-        const todoContainer = [...state.todo]
-        console.log(action.payload)
-        todoContainer.push(action.payload)
-        state.todo = todoContainer
+        
+        console.log( typeof (action.payload),"this is cart")
+        state.todo = action.payload
     
+    },
+    addBeforeCartTitle:(state,action)=>{
+     state.beforeCartTitle=action.payload
+    },
+    addCartItems:(state,action)=>{
+      const {cartItemId,lists} =action.payload
+      const id = cartItemId
+      state.todo.map(ele=>{
+        if(ele.id===id){
+            ele.cartItems.push(lists)
+            localStorage.setItem("todolists",JSON.stringify(state.todo))
+        }
+      })
+
     }
     }
 });
 
 
-export const {addTitle,addTodo} = todoSlice.actions
+export const {addTitle,addTodo,addBeforeCartTitle,addCartItems} = todoSlice.actions
 export default todoSlice.reducer;
