@@ -1,7 +1,7 @@
 import React from 'react'
 import Navbar from '../molecules/navbar/Navbar'
 import styles from './mainpage.module.css'
-import TodoList from '../molecules/Todo/Todo'
+import TodoList from '../molecules/Todo/todo'
 
 const MainPage = () => {
   return (

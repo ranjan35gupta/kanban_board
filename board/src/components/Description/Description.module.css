@@ -1,0 +1,102 @@
+.Whole_Box{
+    /* border: 2px solid red; */
+    overflow: auto;
+    width: 50%;
+    height: 90vh;
+    margin: 0 auto 40px ;
+    margin-top: 4%;
+    z-index: 10;
+    background-color: rgb(32, 32, 33);
+    color: rgb(212, 215, 215);
+    /* box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px; */
+    box-shadow: rgba(220, 216, 216, 0.19) 0px 10px 20px, rgba(0, 0, 0, 0.23) 0px 6px 6px;
+}
+
+.header_top{
+    /* border: 2px solid green; */
+    margin: 20px;
+    background-color: rgb(88, 89, 90);
+    padding: 12px;
+    width: 70%;
+    display: flex;
+    justify-content: space-evenly;
+}
+
+
+.header_top p{
+    margin-left: 3px;
+}
+
+.second_top{
+    /* border: 2px solid blue; */
+    margin: 10px;
+    padding: 2px; 
+    width: 70%;
+}
+
+.watch_btn{
+    border: none;
+    font-size: 1rem;
+    padding: 8px;
+    width: 15%;
+    border-radius: 5px;
+    font-weight: bold;
+}
+.Description_top{
+    margin-left: 5px;
+}
+.text_area{
+    height: 20vh;
+    width: 70%;
+    text-align: start;
+}
+
+.text_btn{
+    margin-left: 30px;
+    margin-top: 2%;
+}
+.save_btn{
+    margin-left: 10px;
+    padding: 3px;
+    width:10%;
+    background-color: rgb(113, 185, 240);
+    border: none;
+}
+.cancel_btn{
+    padding: 3px;
+    width:10%;
+    border: none;
+}
+
+.text_area_user{
+    height: 5vh;
+    width: 70%;
+}
+.save_btn_second{
+    margin-left: 10px;
+    padding: 3px;
+    width:10%;
+    background-color: rgb(221, 225, 228);
+    border: none;
+}
+
+.text_user_btn{
+    margin-left: 30px;
+    margin-top: 1%;
+}
+.Watch_btn{
+    padding: 3px;
+    width:10%;
+    border: none;
+    background-color: rgb(113, 185, 240);
+}
+.Activity{
+    margin-left: 5px;
+}
+
+
+  
+  
+
+  
+  

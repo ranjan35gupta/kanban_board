@@ -4,7 +4,7 @@ import { useEffect } from 'react';
 import { useDispatch } from 'react-redux';
 import { addTodo } from './Redux/Reduxslice/todoSlice';
 
-import Todo from './components/molecules/Todo/Todo';
+import Todo from './components/molecules/Todo/todo';
 
 function App() {
   const dispatch = useDispatch()
