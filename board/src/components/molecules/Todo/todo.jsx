@@ -120,6 +120,7 @@ const handleDelete = (index) => {
   const newList  = [...todo];
   newList.splice(index,1);
   dispatch(addTodo(newList))
+  setOpen(false)
 }
   
   return (
