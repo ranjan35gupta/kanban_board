@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import uuid from 'react-uuid'
+import {RxCross2} from 'react-icons/rx'
 
 import styles from "./todo.module.css";
 import MoreHorizIcon from '@mui/icons-material/MoreHoriz';
@@ -79,6 +80,7 @@ const Todo = () => {
     dispatch(addCartItems({cartItemId:cartItemId,lists:addlist}))
     setShowList(true);
   }
+
 function handleOnDragEnd(result){
   console.log(result,"htis is result")
   const items = Array.from(todo)
@@ -103,41 +105,39 @@ function handleOnDragEnd1(result,id,index){
   items.splice(result.destination.index,0,reorderedItem)
  
     dispatch(pushCartContent({item:items,id:id}))
-
-  
-    
-  
 }
 
 
   
   return (
-    <>
+    <div className={styles.container}>
+    <div>
       {isClicked ? (
-        <div>
+        <div className={styles.add_list}>
           <button onClick={handleAddList} className={styles.add_list_btn}>
-            Add List
+           + Add a List
           </button>
         </div>
       ) : (
-        <div className={styles.title} >
-          <input 
+        <div className={styles.add_list_field} >
+          <input className={styles.text_field}
+           placeholder="Enter list title..."
             onChange={(e) => {
               dispatch(addBeforeCartTitle(e.target.value));
             }}
           />
-          <button onClick={handleCard}>Add Card</button>
+          <button className={styles.list_btn} onClick={handleCard}>Add Card</button>
+          <div className={styles.cross}>
+          <RxCross2 />
+           </div> 
         </div>
       )}
+      </div>
 
     
-        <div >
+        <div className={styles.container1} >
           <DragDropContext onDragEnd={handleOnDragEnd}  >
             <Droppable droppableId={todo.map(ele=>ele.id)}>
-            
-              
-              
-              
               {(provided)=>(
 
              <div className={styles.todo_container_list}  {...provided.droppableProps} ref={provided.innerRef} >
@@ -145,23 +145,26 @@ function handleOnDragEnd1(result,id,index){
             return (
               <Draggable key={item.id} draggableId={item.id} index={index} >
                 {(provided)=>(
-              <div  {...provided.draggableProps} {...provided.dragHandleProps}    ref={provided.innerRef}>
-                <div >
-                  <div>
-                  <form onSubmit={(e)=>handleTitle(e,item.id)}>
-                  <input type="text"   defaultValue={item.cartName} onChange={handleranjan} />
-                 <MoreHorizIcon/>
+              <div  {...provided.draggableProps} {...provided.dragHandleProps}  className={styles.wraperContainer}  ref={provided.innerRef}>
+                <div className={styles.todoContainer}>
+                  <div className={styles.titles}>
+                  <form className={styles.forms} onSubmit={(e)=>handleTitle(e,item.id)}>
+                  <input type="text" className={styles.input1}   defaultValue={item.cartName} onChange={handleranjan} />
+                 <MoreHorizIcon sx={{marginTop: "10px"}}/>
                   </form>
                   </div>
                   <DragDropContext  onDragEnd={(result)=>handleOnDragEnd1(result,item.id,index)}    >
                     <Droppable  droppableId={item.cartItems.map(ele=>ele.listItemId)} >
                       {(provided)=>(
-                  <div {...provided.draggableProps}   ref={provided.innerRef}       >
+                  <div {...provided.draggableProps}   ref={provided.innerRef}    className={styles.cartitem}   >
                   {item.cartItems.map((ele,index)=>{
                     return(
                       <Draggable key={ele.listItemId}  draggableId={ele.listItemId} index={index}  >
                         {(provided)=>(
-                      <div  {...provided.draggableProps} {...provided.dragHandleProps} ref={provided.innerRef}         >{ele.nameOfCardItem}   <BiPencil/> </div>
+                          <>
+                      <div className={styles.element} {...provided.draggableProps} {...provided.dragHandleProps} ref={provided.innerRef}>{ele.nameOfCardItem}  </div>
+                      <BiPencil className={styles.pencil}/>
+                      </>
                       )}
                       </Draggable>
                     )
@@ -171,11 +174,14 @@ function handleOnDragEnd1(result,id,index){
                   )}
                   </Droppable>
                   </DragDropContext>
-                  <form onSubmit={(e)=>addCartList(e,item.id)} >
-                  <input type="text" onChange={(e)=>setAddList(e.target.value)} />
+                  <form onSubmit={(e)=>addCartList(e,item.id)} className={styles.form2} >
+                  <input className={styles.input2} type="text" onChange={(e)=>setAddList(e.target.value)} />
                   </form>
                  
-                 <button>cart</button>
+                 <button className={styles.addbtn} onClick={(e)=>addCartList(e,item.id)}>cart</button>
+                 <div className={styles.cross1}>
+          <RxCross2 />
+           </div> 
                  
                
                 </div>
@@ -197,7 +203,7 @@ function handleOnDragEnd1(result,id,index){
           
         </div>
      
-    </>
+    </div>
   );
 };
 
