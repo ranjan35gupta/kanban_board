@@ -1,4 +1,5 @@
 import { createSlice} from "@reduxjs/toolkit";
+import uuid from "react-uuid";
 
 
 const todoSlice = createSlice({
@@ -7,6 +8,7 @@ const todoSlice = createSlice({
         title : "",
         todo:[],
         beforeCartTitle:"",
+
         
     },
     reducers: {
@@ -37,15 +39,25 @@ const todoSlice = createSlice({
       const id = cartItemId
       state.todo.map(ele=>{
         if(ele.id===id){
-            ele.cartItems.push(lists)
+            ele.cartItems.push({listItemId:uuid(),nameOfCardItem:lists})
             localStorage.setItem("todolists",JSON.stringify(state.todo))
         }
       })
 
+    },
+    pushCartContent:(state,action)=>{
+       const {item,id}=action.payload
+       state.todo.map(ele=>{
+        if(ele.id===id){
+            ele.cartItems=item
+            localStorage.setItem("todolists",JSON.stringify(state.todo))
+        }
+       })
     }
+
     }
 });
 
 
-export const {addTitle,addTodo,addBeforeCartTitle,addCartItems} = todoSlice.actions
+export const {addTitle,addTodo,addBeforeCartTitle,addCartItems,pushCartContent} = todoSlice.actions
 export default todoSlice.reducer;

@@ -6,7 +6,8 @@ import MoreHorizIcon from '@mui/icons-material/MoreHoriz';
 import {BiPencil, BiSolidPencil, BiUser} from 'react-icons/bi'
 
 import { useDispatch,useSelector } from "react-redux";
-import { addTitle,addTodo,addBeforeCartTitle,addCartItems } from "../../../Redux/Reduxslice/todoSlice";
+import { addTitle,addTodo,addBeforeCartTitle,addCartItems,pushCartContent } from "../../../Redux/Reduxslice/todoSlice";
+import {DragDropContext,Droppable,Draggable} from 'react-beautiful-dnd'
 
 
 const Todo = () => {
@@ -22,6 +23,7 @@ const Todo = () => {
   const [showList, setShowList] = useState(false);
   const [addlist,setAddList]=useState('')
   const [titleName1,setTitleName1]=useState('')
+  const [characters,setCharacters]=useState(todo)
   
   const [isClicked, setIsClicked] = useState(true);
 
@@ -77,6 +79,37 @@ const Todo = () => {
     dispatch(addCartItems({cartItemId:cartItemId,lists:addlist}))
     setShowList(true);
   }
+function handleOnDragEnd(result){
+  console.log(result,"htis is result")
+  const items = Array.from(todo)
+  const [reorderedItem]=items.splice(result.source.index,1)
+  items.splice(result.destination.index,0,reorderedItem)
+  dispatch(addTodo(items))
+ 
+
+}
+function handleOnDragEnd1(result,id,index){
+ 
+  
+  console.log(result,"showing result")
+  console.log(todo[index],"mine items")
+  // console.log(items,"updated one")
+  
+    const items = Array.from(todo[index].cartItems)
+    // const items1 = Array.from(todo[index+1].cartItems)
+  
+  const [reorderedItem]= items.splice(result.source.index,1)
+  
+  items.splice(result.destination.index,0,reorderedItem)
+ 
+    dispatch(pushCartContent({item:items,id:id}))
+
+  
+    
+  
+}
+
+
   
   return (
     <>
@@ -98,10 +131,21 @@ const Todo = () => {
       )}
 
     
-        <div className={styles.todo_container_list}>
-          {todo.map((item) => {
+        <div >
+          <DragDropContext onDragEnd={handleOnDragEnd}  >
+            <Droppable droppableId={todo.map(ele=>ele.id)}>
+            
+              
+              
+              
+              {(provided)=>(
+
+             <div className={styles.todo_container_list}  {...provided.droppableProps} ref={provided.innerRef} >
+          {todo.map((item,index) => {
             return (
-              <>
+              <Draggable key={item.id} draggableId={item.id} index={index} >
+                {(provided)=>(
+              <div  {...provided.draggableProps} {...provided.dragHandleProps}    ref={provided.innerRef}>
                 <div >
                   <div>
                   <form onSubmit={(e)=>handleTitle(e,item.id)}>
@@ -109,11 +153,24 @@ const Todo = () => {
                  <MoreHorizIcon/>
                   </form>
                   </div>
-                  {item.cartItems.map(ele=>{
+                  <DragDropContext  onDragEnd={(result)=>handleOnDragEnd1(result,item.id,index)}    >
+                    <Droppable  droppableId={item.cartItems.map(ele=>ele.listItemId)} >
+                      {(provided)=>(
+                  <div {...provided.draggableProps}   ref={provided.innerRef}       >
+                  {item.cartItems.map((ele,index)=>{
                     return(
-                      <div>{ele}   <BiPencil/> </div>
+                      <Draggable key={ele.listItemId}  draggableId={ele.listItemId} index={index}  >
+                        {(provided)=>(
+                      <div  {...provided.draggableProps} {...provided.dragHandleProps} ref={provided.innerRef}         >{ele.nameOfCardItem}   <BiPencil/> </div>
+                      )}
+                      </Draggable>
                     )
                   })}
+                  {provided.placeholder}
+                  </div>
+                  )}
+                  </Droppable>
+                  </DragDropContext>
                   <form onSubmit={(e)=>addCartList(e,item.id)} >
                   <input type="text" onChange={(e)=>setAddList(e.target.value)} />
                   </form>
@@ -122,9 +179,20 @@ const Todo = () => {
                  
                
                 </div>
-              </>
-            );
+              </div>
+              )}
+              </Draggable>
+            )
+            
           })}
+          {provided.placeholder}
+          </div> 
+          )
+
+              }
+           
+          </Droppable>
+          </DragDropContext>
 
           
         </div>
