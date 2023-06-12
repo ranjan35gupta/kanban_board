@@ -1,0 +1,26 @@
+.editor-border {
+    border: 2px solid #0e0c0c;
+    padding: 4px;
+    height: 300px; /* Adjust the desired height */
+    box-sizing: border-box;
+    background-color: rgb(237, 228, 228);
+    color: rgb(31, 28, 28);
+  }
+  
+  .editor-wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;  
+  }
+
+  .save-button{
+    background-color: blue;
+    color: aliceblue;
+    
+  }
+  
+  
+
+  
+  
