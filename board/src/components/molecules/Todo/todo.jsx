@@ -1,6 +1,8 @@
 import React, { useState } from "react";
 import uuid from 'react-uuid'
-import {RxCross2} from 'react-icons/rx'
+import {RxCross2} from 'react-icons/rx';
+import { Dialog,DialogContent } from "@mui/material";
+import DeleteOutlineIcon from '@mui/icons-material/DeleteOutline';
 
 import styles from "./todo.module.css";
 import MoreHorizIcon from '@mui/icons-material/MoreHoriz';
@@ -12,6 +14,8 @@ import {DragDropContext,Droppable,Draggable} from 'react-beautiful-dnd'
 
 
 const Todo = () => {
+  const [open,setOpen] = useState(false)
+  const [showDialog,setShowDialog] =  useState(false)
   // useEffect(()=>{
  
   // },[title])
@@ -108,6 +112,15 @@ function handleOnDragEnd1(result,id,index){
 }
 
 
+function handleClick() {
+  setOpen(true)
+  setShowDialog(!showDialog)
+}
+const handleDelete = (index) => {
+  const newList  = [...todo];
+  newList.splice(index,1);
+  dispatch(addTodo(newList))
+}
   
   return (
     <div className={styles.container}>
@@ -149,8 +162,18 @@ function handleOnDragEnd1(result,id,index){
                 <div className={styles.todoContainer}>
                   <div className={styles.titles}>
                   <form className={styles.forms} onSubmit={(e)=>handleTitle(e,item.id)}>
+                    <div className={styles.horizontalIcons}>
                   <input type="text" className={styles.input1}   defaultValue={item.cartName} onChange={handleranjan} />
-                 <MoreHorizIcon sx={{marginTop: "10px"}}/>
+                 <MoreHorizIcon  onClick={handleClick} />
+               <div>{showDialog ?  <Dialog 
+                
+                hideBackdrop open={open} onClose= {() =>  setOpen(false)}>
+                  <DialogContent >
+                  <DeleteOutlineIcon onClick={() => handleDelete(index)}/>
+                  </DialogContent>
+                 </Dialog> : <>
+                 </>}</div>
+                 </div>
                   </form>
                   </div>
                   <DragDropContext  onDragEnd={(result)=>handleOnDragEnd1(result,item.id,index)}    >

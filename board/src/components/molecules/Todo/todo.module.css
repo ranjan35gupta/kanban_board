@@ -92,14 +92,7 @@
       
       
   }
-  .cross1{
-    font-size: 1.5rem;
-    position: relative;
-    left: 110px;
-    margin-top: -35px;
-
-
-  }
+ 
   .pencil{
     /* position: relative; */
     /* left: 180px; */
@@ -150,6 +143,8 @@
     background-color: rgb(241,242,244);
     color: black;
     border-radius: 0.6rem;
+    width: max-content;
+    
   }
   
   .todoContainer {
@@ -158,6 +153,8 @@
     padding-left: 0.5rem;
     padding-bottom: 0.8rem;
     height: fit-content;
+    width: max-content;
+    
   }
   
   .titles {
@@ -165,12 +162,13 @@
       justify-content: space-between;
     border: none;
     font-weight: 500;
+    width: max-content;
   }
   .todo_container_list{
     display: flex;
     /* flex-direction: row-reverse; */
     /* border: 2px solid pink; */
-    position: relative;
+   width: max-content;
   }
   .form2{
 /* border: 2px solid red; */
@@ -191,4 +189,8 @@ overflow: hidden;
   }
   .cartitem:hover{
     box-shadow: 0px 0px 4px black;
+  }
+  .horizontalIcons {
+    border: 2px solid  rgb(31, 21, 3);
+    display: flex;
   }
